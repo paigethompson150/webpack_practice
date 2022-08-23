@@ -1,4 +1,5 @@
 import './style.css';
-import { initial_load } from './initialPageLoad';
+import { homePage } from './initialPageLoad';
 
-initial_load();
+homePage();
+

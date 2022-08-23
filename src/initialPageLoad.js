@@ -1,4 +1,5 @@
-const initial_load = () => {
+
+export const homePage = () => {
   //Function that intiially loads the screen for the user.
 
   //start of nav bar
@@ -33,19 +34,22 @@ const initial_load = () => {
   const video = document.createElement('video');
   const source = document.createElement('source');
   video.id = 'background-video';
-  //video.poster = '../src/assets/ramen_poster.png';
+  video.poster = '../src/assets/ramen_poster.png';
   source.setAttribute('src', '../src/assets/ramen.mp4');
+  source.type = 'video/mp4';
   video.appendChild(source);
   video.autoplay = true;
   video.loop = true;
+  video.playsInline = true;
+  video.muted = true;
 
   const text_container = document.createElement('div');
   text_container.classList.add('intro_text');
   const h2 = document.createElement('h2');
   h2.innerHTML = 'PAGU RAMEN';
 
-  const button = document.createElement('button');
-  button.classList.add('button-82-pushable');
+  const menuButton = document.createElement('button');
+  menuButton.classList.add('button-82-pushable');
   
   const span1 = document.createElement('span');
   span1.classList.add('button-82-shadow');
@@ -56,13 +60,23 @@ const initial_load = () => {
   span3.classList.add('text');
   span3.innerHTML = 'Discover Menu';
 
-  button.append(span1, span2, span3);
-  text_container.append(h2, button);
+  menuButton.append(span1, span2, span3);
+  text_container.append(h2, menuButton);
 
   container.append(video, text_container);
   content.appendChild(container);
 
+  listen_for_event_listeners();
+
+  function listen_for_event_listeners(){
+    menuButton.addEventListener('click', function(){
+      aboutPage(content, container);
+    });
+  }
+
 }
 
-
-export { initial_load };
+const aboutPage = (content, container) => {
+  content.removeChild(container);
+ // content.removeElement(container);
+}
