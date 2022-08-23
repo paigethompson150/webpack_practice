@@ -4,6 +4,7 @@ export const homePage = () => {
 
   //start of nav bar
   //creating elements for nav
+  let navDOM = document.getElementById('nav');
   let content = document.getElementById('content');
   const nav = document.createElement('nav');
   const ul = document.createElement('ul');
@@ -27,7 +28,7 @@ export const homePage = () => {
   li_logo.appendChild(li_logo_img);
   ul.append(li_about, li_menu, li_logo, li_reserv, li_contact);
   nav.appendChild(ul);
-  content.appendChild(nav);
+  navDOM.appendChild(nav);
 
   //video display
   const container = document.createElement('div');
@@ -69,14 +70,74 @@ export const homePage = () => {
   listen_for_event_listeners();
 
   function listen_for_event_listeners(){
-    menuButton.addEventListener('click', function(){
-      aboutPage(content, container);
+    li_about.addEventListener('click', function(){
+      refreshPage(content);
+      aboutPage(content);
+    });
+    li_logo.addEventListener('click', function(){
+      refreshPage(content);
+      refreshNav(navDOM);
+      homePage();
+    });
+    li_menu.addEventListener('click', function(){
+      refreshPage(content);
+      menuPage(content);
     });
   }
 
 }
 
-const aboutPage = (content, container) => {
-  content.removeChild(container);
- // content.removeElement(container);
+const refreshPage = (content) => {
+  //Removes the DOM contents of the page below the nav bar
+  while (content.firstChild) {
+    content.removeChild(content.lastChild);
+  }
 }
+
+/*const refreshNav = (nav) => {
+  while (nav.firstChild){
+    nav.removeChild(content.lastChild);
+  }
+}*/
+
+
+const aboutPage = (content) => {
+  //Adds the About Page content to the DOM
+
+  const about_container = document.createElement('div');
+  about_container.classList.add('about_container');
+  const video = document.createElement('video');
+  const source = document.createElement('source');
+  video.id = 'about-video';
+  video.poster = '../src/assets/aboutVidPoster.png';
+  source.setAttribute('src', '../src/assets/aboutVid.mp4');
+  source.type = 'video/mp4';
+  video.appendChild(source);
+  video.autoplay = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.muted = true;
+
+  const about_text = document.createElement('div');
+  about_text.classList.add('about_text');
+  const h3 = document.createElement('h3');
+  h3.innerHTML = 'About Us';
+  const h2 = document.createElement('h2');
+  h2.innerHTML = 'Pagu Ramen';
+
+  const p = document.createElement('p');
+  p.innerHTML = 'Authentic Japanese style ramen handcrafted daily. You know the essentials - flour, water, chashu pork. These are the things that you find yourself running out the door for each week (or each day) to purchase.';
+
+  const button = document.createElement('button');
+  button.classList.add('button-27');
+  button.innerHTML = 'Read More';
+
+  about_text.append(h3, h2, p, button);
+  about_container.append(video, about_text);
+
+  content.appendChild(about_container);
+}
+
+
+
+
