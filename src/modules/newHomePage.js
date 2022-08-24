@@ -1,11 +1,11 @@
-
+import videoPoster from '../assets/ramen_poster.png';
 
 export const newHomePage = (content) => {
   const container = document.createElement('div');
   const video = document.createElement('video');
   const source = document.createElement('source');
   video.id = 'background-video';
-  video.poster = 'assets/ramen_poster.png';
+  video.poster = "./aaaba80c43a09c4518c3.png";
   source.setAttribute('src', 'assets/ramen.mp4');
   source.type = 'video/mp4';
   video.appendChild(source);

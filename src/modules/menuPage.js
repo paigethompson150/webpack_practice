@@ -1,5 +1,6 @@
-import misoImg from '../assets/miso.jpg';
-
+import misoImg from '../assets/miso.png';
+import shioImg from '../assets/shio.png';
+import shoyuImg from '../assets/shoyu.png';
 
 export const menuPage = (content) => {
   //Displays the menu items on the screen
@@ -11,7 +12,7 @@ export const menuPage = (content) => {
   misoDescrip.innerHTML = 'This spicy miso soup features an aromatic broth swith a mixture of soy sauce, miso paste, and hot chili oil. Guaranteed to comfort you during any weather.';
   const misoPic = document.createElement('img');
   misoPic.alt = 'miso ramen credits to Crafty Ramen';
-  misoPic.src = misoImg;
+  misoPic.src = './96d70a06aa40212937c8.png';
 
   misoText.append(misoName, misoDescrip);
   misoText.classList.add('menuText');
@@ -23,7 +24,7 @@ export const menuPage = (content) => {
   const shioText = document.createElement('div');
   const shioPic = document.createElement('img');
   shioPic.alt = 'shio ramen credits to Crafty Ramen';
-  shioPic.src = 'shio.png';
+  shioPic.src = './e9feb1c09fb9e9190e02.png';
   const shioName = document.createElement('h2');
   shioName.innerHTML = "A Knight and his Shio'ld"
   const shioDescrip = document.createElement('p');
@@ -43,8 +44,7 @@ export const menuPage = (content) => {
   shoyuDescrip.innerHTML = 'Soy-sauce based broth that will make you feel like the absolute boss. Presented with adaged chashu, bamboo shoots, and chili oil.'
   const shoyuPic = document.createElement('img');
   shoyuPic.alt = 'shoyu ramen credits to Crafty Ramen';
-  shoyuPic.src = 'assets/shoyu.png';
-  shoyuPic.type = 'img';
+  shoyuPic.src = './d601d29051b60a8f1ad2.png';
 
   shoyuText.append(shoyuName, shoyuDescrip);
   shoyuText.classList.add('menuText');

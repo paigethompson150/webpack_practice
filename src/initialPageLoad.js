@@ -4,6 +4,8 @@ import {menuPage} from './modules/menuPage.js';
 import {aboutPage} from './modules/aboutPage.js';
 import {reservePage} from './modules/reservePage.js';
 import {contactPage} from './modules/contactPage.js';
+import logo from './assets/logo.png';
+import videoPoster from './assets/ramen_poster.png';
 
 export const homePage = () => {
   //Creates elements for the homescreen for the user
@@ -25,7 +27,7 @@ export const homePage = () => {
   nav.id = 'navigation';
   li_about.innerHTML = 'About';
   li_menu.innerHTML = 'Menu';
-  //li_logo_img.src = 'assets/logo.png';
+  li_logo_img.src = './bfc2e3dfc24b415ff8d7.png';
   li_logo_img.classList.add('nav_logo');
   li_reserv.innerHTML = 'Solo-Dining';
   li_contact.innerHTML = 'Contact Us';
@@ -41,7 +43,7 @@ export const homePage = () => {
   const video = document.createElement('video');
   const source = document.createElement('source');
   video.id = 'background-video';
-  //video.poster = "assets/ramen_poster.png";
+  video.poster = "./aaaba80c43a09c4518c3.png";
   //source.setAttribute('src', 'assets/ramen.mp4');
   source.type = 'video/mp4';
   video.appendChild(source);

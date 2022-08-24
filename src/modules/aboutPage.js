@@ -1,3 +1,4 @@
+import aboutPoster from "../assets/aboutVidPoster.png";
 
 export const aboutPage = (content) => {
   //Adds the About Page content to the DOM
@@ -7,7 +8,7 @@ export const aboutPage = (content) => {
   const video = document.createElement('video');
   const source = document.createElement('source');
   video.id = 'about-video';
-  video.poster = '../src/assets/aboutVidPoster.png';
+  video.poster = './ce58ae6bdb78ef3892ec.png';
   source.setAttribute('src', '../src/assets/aboutVid.mp4');
   source.type = 'video/mp4';
   video.appendChild(source);

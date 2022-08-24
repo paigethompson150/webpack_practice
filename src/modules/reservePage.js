@@ -1,11 +1,11 @@
-//import boothPic from '../assets/miso.jpg';
+import boothPic from '../assets/soloBooth.jpg';
 
 export const reservePage = (content) => {
   const soloBoothPic = document.createElement('img');
+  soloBoothPic.src = './4c0031aa99d3ad189030.jpg'
   soloBoothPic.classList.add('boothPic');
   soloBoothPic.classList.add('fadeinUp');
   soloBoothPic.alt = 'solo booth dining w/ ramen, credits to Eater NY';
- // soloBoothPic.src = boothPic;
 
   const headerText = document.createElement('h2');
   headerText.innerHTML = 'Welcome to our solo-dining experience.';
