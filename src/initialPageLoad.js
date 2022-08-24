@@ -65,6 +65,7 @@ export const homePage = () => {
   text_container.append(h2, menuButton);
 
   container.append(video, text_container);
+  container.classList.add('fade-in');
   content.appendChild(container);
 
   listen_for_event_listeners();
@@ -76,8 +77,11 @@ export const homePage = () => {
     });
     li_logo.addEventListener('click', function(){
       refreshPage(content);
-      refreshNav(navDOM);
-      homePage();
+      newHomePage(content);
+    });
+    menuButton.addEventListener('click', function(){
+      refreshPage(content);
+      menuPage(content);
     });
     li_menu.addEventListener('click', function(){
       refreshPage(content);
@@ -91,15 +95,53 @@ const refreshPage = (content) => {
   //Removes the DOM contents of the page below the nav bar
   while (content.firstChild) {
     content.removeChild(content.lastChild);
+    //content.removeChild(content.lastChild);
   }
 }
 
-/*const refreshNav = (nav) => {
-  while (nav.firstChild){
-    nav.removeChild(content.lastChild);
-  }
-}*/
+const newHomePage = (content) => {
+  const container = document.createElement('div');
+  const video = document.createElement('video');
+  const source = document.createElement('source');
+  video.id = 'background-video';
+  video.poster = '../src/assets/ramen_poster.png';
+  source.setAttribute('src', '../src/assets/ramen.mp4');
+  source.type = 'video/mp4';
+  video.appendChild(source);
+  video.autoplay = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.muted = true;
 
+  const text_container = document.createElement('div');
+  text_container.classList.add('intro_text');
+  const h2 = document.createElement('h2');
+  h2.innerHTML = 'PAGU RAMEN';
+
+  const menuButton = document.createElement('button');
+  menuButton.classList.add('button-82-pushable');
+  
+  const span1 = document.createElement('span');
+  span1.classList.add('button-82-shadow');
+  const span2 = document.createElement('span');
+  span2.classList.add('button-82-edge');
+  const span3 = document.createElement('span');
+  span3.classList.add('button-82-front');
+  span3.classList.add('text');
+  span3.innerHTML = 'Discover Menu';
+
+  menuButton.append(span1, span2, span3);
+  text_container.append(h2, menuButton);
+
+  container.append(video, text_container);
+  container.classList.add('fade-in');
+  content.appendChild(container);
+
+  menuButton.addEventListener('click', function(){
+    refreshPage(content);
+    menuPage(content);
+  });
+}
 
 const aboutPage = (content) => {
   //Adds the About Page content to the DOM
@@ -134,10 +176,68 @@ const aboutPage = (content) => {
 
   about_text.append(h3, h2, p, button);
   about_container.append(video, about_text);
+  about_container.classList.add('fadeinUp');
 
   content.appendChild(about_container);
 }
 
 
+const menuPage = (content) => {
+  //Displays the menu items on the screen
+  const misoItem = document.createElement('div');
+  const misoText = document.createElement('div');
+  const misoName = document.createElement('h2');
+  misoName.innerHTML = 'The Miso Happy To See You';
+  const misoDescrip = document.createElement('p');
+  misoDescrip.innerHTML = 'This spicy miso soup features an aromatic broth swith a mixture of soy sauce, miso paste, and hot chili oil. Guaranteed to comfort you during any weather.';
+  const misoPic = document.createElement('img');
+  misoPic.alt = 'miso ramen credits to Crafty Ramen';
+  misoPic.src = '../src/assets/miso.png';
+  misoPic.type = 'img';
 
+  misoText.append(misoName, misoDescrip);
+  misoText.classList.add('menuText');
+  misoItem.classList.add('menuItem');
+  misoItem.append(misoText, misoPic);
+  misoItem.classList.add('fadeinUp');
+
+  const shioItem = document.createElement('div');
+  const shioText = document.createElement('div');
+  const shioPic = document.createElement('img');
+  shioPic.alt = 'shio ramen credits to Crafty Ramen';
+  shioPic.src = '../src/assets/shio.png';
+  const shioName = document.createElement('h2');
+  shioName.innerHTML = "A Knight and his Shio'ld"
+  const shioDescrip = document.createElement('p');
+  shioDescrip.innerHTML = 'This vegetable-based, salty broth will soothe and protect your tastebuds like a valiant knight. Topped with honey-glazed salmon, chives and chili oil.'
+
+  shioText.append(shioName, shioDescrip);
+  shioText.classList.add('menuText');
+  shioItem.classList.add('menuItem');
+  shioItem.append(shioPic, shioText);
+  shioItem.classList.add('fadeinUp');
+
+  const shoyuItem = document.createElement('div');
+  const shoyuText = document.createElement('div');
+  const shoyuName = document.createElement('h2');
+  shoyuName.innerHTML = "I'll Shoyu Who's Boss";
+  const shoyuDescrip = document.createElement('p');
+  shoyuDescrip.innerHTML = 'Soy-sauce based broth that will make you feel like the absolute boss. Presented with adaged chashu, bamboo shoots, and chili oil.'
+  const shoyuPic = document.createElement('img');
+  shoyuPic.alt = 'shoyu ramen credits to Crafty Ramen';
+  shoyuPic.src = '../src/assets/shoyu.png';
+  shoyuPic.type = 'img';
+
+  shoyuText.append(shoyuName, shoyuDescrip);
+  shoyuText.classList.add('menuText');
+  shoyuItem.classList.add('menuItem');
+  shoyuItem.append(shoyuText,shoyuPic);
+  shoyuItem.classList.add('fadeinUp');
+
+
+
+  content.append(misoItem, shioItem, shoyuItem);
+  
+
+}
 

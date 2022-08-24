@@ -1,7 +1,41 @@
 *{
+  font-family: 'Roboto', sans-serif;
+}
+
+/*fade-in animation https://gist.github.com/nisanth074/46671279996bc9e5a863 */
+
+.fadeinUp {
+  -webkit-animation: fadeInUp 500ms ease-in-out; /* Chrome, Safari, Opera */
+  animation: fadeInUp 500ms ease-in-out;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      -webkit-transform: translateY(40px);
+  }
+  100% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+  }
 }
 
 /* home page start */
+
+.fade-in{
+  -webkit-animation: fadeIn 500ms ease-in-out; /* Chrome, Safari, Opera */
+  animation: fadeIn 500ms ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 #background-video{
   width: 100%;
 }
@@ -45,8 +79,8 @@ nav li:hover, .intro_text h2:hover{
   text-align: center;
   position: absolute;
   top: 20%;
-  left: 36%;
-  right: 36%;
+  left: 30%;
+  right: 30%;
 }
 /* home page end */
 
@@ -67,6 +101,26 @@ nav li:hover, .intro_text h2:hover{
 }
 #about-video {
   max-width: 40%;
+}
+
+/* about page end */
+
+/* menu page start */
+
+.menuItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.menuItem img {
+  max-width: 40%;
+}
+
+.menuText {
+  font-size: 1.2em;
+  max-width: 400px;
 }
 
 /* CSS */
