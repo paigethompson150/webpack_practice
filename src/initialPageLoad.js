@@ -21,7 +21,7 @@ export const homePage = () => {
   li_menu.innerHTML = 'Menu';
   li_logo_img.src = '../src/assets/logo.png';
   li_logo_img.classList.add('nav_logo');
-  li_reserv.innerHTML = 'Reservations';
+  li_reserv.innerHTML = 'Solo-Dining';
   li_contact.innerHTML = 'Contact Us';
 
   //appending to parent nodes
@@ -86,6 +86,14 @@ export const homePage = () => {
     li_menu.addEventListener('click', function(){
       refreshPage(content);
       menuPage(content);
+    });
+    li_reserv.addEventListener('click', function(){
+      refreshPage(content);
+      reservePage(content);
+    });
+    li_contact.addEventListener('click', function(){
+      refreshPage(content);
+      contactPage(content);
     });
   }
 
@@ -234,10 +242,79 @@ const menuPage = (content) => {
   shoyuItem.append(shoyuText,shoyuPic);
   shoyuItem.classList.add('fadeinUp');
 
-
-
   content.append(misoItem, shioItem, shoyuItem);
-  
 
+}
+
+const reservePage = (content) => {
+  const soloBoothPic = document.createElement('img');
+  soloBoothPic.classList.add('boothPic');
+  soloBoothPic.classList.add('fadeinUp');
+  soloBoothPic.alt = 'solo booth dining w/ ramen, credits to Eater NY';
+  soloBoothPic.src = '../src/assets/soloBooth.jpg';
+  soloBoothPic.type = 'img';
+
+  const headerText = document.createElement('h2');
+  headerText.innerHTML = 'Welcome to our solo-dining experience.';
+  headerText.classList.add('fadeinUp');
+
+  const container = document.createElement('div');
+  container.classList.add('reserveContainer');
+  const diningDescription = document.createElement('p');
+  diningDescription.innerHTML = 'Fulfill your introverted needs with our contactless ordering and payment system. Simply order using a pen and paper, and fill out a sheet for your server for additional orders and refills.';
+
+  const reservationDescription = document.createElement('p');
+  reservationDescription.innerHTML = 'Since we would like to keep an intimate dining experience for our customers, we do not take reservations.';
+
+  container.append(headerText, diningDescription, reservationDescription);
+
+  content.append(soloBoothPic, container);
+}
+
+const contactPage = (content) => {
+  const title = document.createElement('h2');
+  title.classList.add('contactUsTitle');
+  title.innerHTML = 'Contact Us';
+
+  const form = document.createElement('form');
+  form.action = '#';
+  form.method = 'gets';
+  form.id = 'form';
+
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  nameInput.id = 'firstName';
+  nameInput.placeholder = 'Your name*';
+  nameInput.required = true;
+
+  const emailInput = document.createElement('input');
+  emailInput.type = 'email';
+  emailInput.id = 'email';
+  emailInput.placeholder = 'Your email*';
+  emailInput.required = true;
+
+  const phoneInput = document.createElement('input');
+  phoneInput.type = 'tel';
+  phoneInput.id = 'phone-number';
+  phoneInput.name = 'phone-number';
+  phoneInput.placeholder = 'Your phone'
+
+  const messageInput = document.createElement('textarea');
+  messageInput.classList.add('textInput');
+  messageInput.rows = '10';
+  messageInput.cols = '89';
+  messageInput.placeholder = 'Message*';
+  messageInput.required = true;
+
+  const submitBtn = document.createElement('button');
+  submitBtn.innerHTML = 'Send Message';
+  submitBtn.classList.add('button-27');
+  submitBtn.type = 'submit';
+  submitBtn.value = 'submit';
+
+  form.append(nameInput, emailInput, phoneInput, messageInput, submitBtn);
+
+
+  content.append(title, form);
 }
 

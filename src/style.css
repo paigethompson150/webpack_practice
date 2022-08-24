@@ -123,6 +123,53 @@ nav li:hover, .intro_text h2:hover{
   max-width: 400px;
 }
 
+/* solo-dining page start */
+
+.boothPic {
+  width: 100%;
+}
+
+.reserveContainer {
+  text-align: center;
+  margin: auto;
+  max-width: 700px;
+  font-size: 1.3em;
+}
+
+.reserveContainer h2{
+  font-size: 1.8em;
+}
+ /* solo dining page end */
+
+ /* contact us page start */
+
+.contactUsTitle {
+  text-align: center;
+  font-size: 2em;
+}
+
+form { 
+  width: 602px;
+  margin: auto;
+  font-size: 3em;
+  text-align: center;
+}
+input { 
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.textInput{
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+
+
+
+
 /* CSS */
 .button-27 {
   appearance: none;
