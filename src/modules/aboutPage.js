@@ -9,7 +9,7 @@ export const aboutPage = (content) => {
   const source = document.createElement('source');
   video.id = 'about-video';
   video.poster = './ce58ae6bdb78ef3892ec.png';
-  source.setAttribute('src', '../src/assets/aboutVid.mp4');
+  //source.setAttribute('src', '../src/assets/aboutVid.mp4');
   source.type = 'video/mp4';
   video.appendChild(source);
   video.autoplay = true;
